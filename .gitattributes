@@ -1,0 +1,4 @@
+distrib/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+distrib/*.tar.bz2 filter=lfs diff=lfs merge=lfs -text
+distrib/*.tar.xz filter=lfs diff=lfs merge=lfs -text
+distrib/*.zip filter=lfs diff=lfs merge=lfs -text
