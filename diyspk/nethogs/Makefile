@@ -1,5 +1,5 @@
 SPK_NAME = nethogs
-SPK_VERS = 0.8.7
+SPK_VERS = 0.8.8
 SPK_REV = 3
 SPK_ICON = src/nethogs.png
 
