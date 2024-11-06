@@ -1,0 +1,3 @@
+SERVICE_COMMAND="${SYNOPKG_PKGDEST}/bin/iperf3 -s --bind-dev eth0"
+SVC_BACKGROUND=y
+SVC_WRITE_PID=y
