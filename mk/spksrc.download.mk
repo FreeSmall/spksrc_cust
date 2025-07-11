@@ -153,7 +153,6 @@ download_target: $(PRE_DOWNLOAD_TARGET)
 	        localFile=$$(basename $${url}) ; \
 	      fi ; \
 	      url=$$(echo $${url} | sed -e '#^\(http://sourceforge\.net/.*\)$#\1?use_mirror=autoselect#') ; \
-	      url=$$(echo $${url} | sed -e 's#https://download\.gnome\.org/sources#https://cdimage.debian.org/mirror/gnome.org/sources#') ; \
 	      exec 9> /tmp/wget.$${localFile}.lock ; \
 	      flock --timeout $(FLOCK_TIMEOUT) --exclusive 9 || exit 1 ; \
 	      pid=$$$$ ; \
@@ -161,9 +160,9 @@ download_target: $(PRE_DOWNLOAD_TARGET)
 	      if [ -f $${localFile} ]; then \
 	        $(MSG) "  File $${localFile} already downloaded" ; \
 	      else \
-	        $(MSG) "  wget --secure-protocol=TLSv1_2 --timeout=30 --waitretry=0 --tries=5 -nv $${url}" ; \
+	        $(MSG) "  wget --secure-protocol=TLSv1_2 --timeout=30 -nv $${url}" ; \
 	        rm -f $${localFile}.part ; \
-	        wget --secure-protocol=TLSv1_2 --timeout=30 --waitretry=0 --tries=5 -nv -O $${localFile}.part -nc $${url} ; \
+	        wget --secure-protocol=TLSv1_2 --timeout=30 -nv -O $${localFile}.part -nc $${url} ; \
 	        mv $${localFile}.part $${localFile} ; \
 	      fi ; \
 	      flock -u 9 ; \
